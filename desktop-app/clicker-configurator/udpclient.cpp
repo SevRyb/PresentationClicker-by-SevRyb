@@ -11,7 +11,7 @@ UdpClient::UdpClient(QObject *parent)
     //     quint16 port = 0, BindMode mode = DefaultForPlatform)
     const QHostAddress &localhost = QHostAddress("0.0.0.0");
     qDebug() << localhost.toString();
-    m_udpSocket->bind(QHostAddress::LocalHost, 1234);
+    m_udpSocket->bind(localhost, 1234);
 
     connect(m_udpSocket, &QUdpSocket::readyRead, this, &UdpClient::readyRead);
 
