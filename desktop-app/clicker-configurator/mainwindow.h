@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
+#include <QPushButton>
 
 class MainWindow : public QWidget
 {
@@ -10,5 +11,7 @@ class MainWindow : public QWidget
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+private:
+    QPushButton *m_btn;
 };
 #endif // MAINWINDOW_H
