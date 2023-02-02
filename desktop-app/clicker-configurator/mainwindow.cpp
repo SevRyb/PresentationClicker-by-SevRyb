@@ -2,8 +2,8 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
+    , m_udpClient(new UdpClient(this))
 {
-    m_btn = new QPushButton("Connect", this);
 }
 
 MainWindow::~MainWindow()

@@ -13,11 +13,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Network REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Network REQUIRED)
 
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
+        udpclient.cpp
+        udpclient.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -44,6 +48,7 @@ else()
 endif()
 
 target_link_libraries(clicker-configurator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(clicker-configurator PRIVATE Qt${QT_VERSION_MAJOR}::Network)
 
 set_target_properties(clicker-configurator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
