@@ -21,13 +21,23 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Device area
     m_deviceGridLay = new QGridLayout(m_deviceGroup);
+    m_wifiSsidOnDevice = new QLineEdit("My WiFi", m_deviceGroup);
+    m_wifiPassOnDevice = new QLineEdit("qwerty123", m_deviceGroup);
     m_serverIpOnDevice = new QLineEdit("192.168.0.104", m_deviceGroup);
     m_serverPortOnDevice = new QLineEdit("1234", m_deviceGroup);
     m_saveToDeviceBtn = new QPushButton("Save", m_deviceGroup);
-    m_saveToDeviceBtn->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
 
-    m_deviceGridLay->addWidget(new QLabel("Status: online (battery 87%)", m_deviceGroup), 0, 0, 0, 4);
+    m_saveToDeviceBtn->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
+
+    QLabel *status_label = new QLabel("<strong>Status: <i><font color=green>online (battery 87%)</i></strong>", m_deviceGroup);
+    status_label->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum);
+
+    m_deviceGridLay->addWidget(status_label, 0, 0, 1, 3, Qt::AlignTop | Qt::AlignHCenter);
     m_deviceGridLay->addWidget(new QLabel("WiFi", m_deviceGroup), 1, 0);
+    m_deviceGridLay->addWidget(new QLabel("SSID", m_deviceGroup), 2, 0);
+    m_deviceGridLay->addWidget(new QLabel("Password", m_deviceGroup), 3, 0);
+    m_deviceGridLay->addWidget(m_wifiSsidOnDevice, 2, 1);
+    m_deviceGridLay->addWidget(m_wifiPassOnDevice, 3, 1);
 
 
     m_deviceGridLay->addWidget(new QLabel("Server", m_deviceGroup), 4, 0);
@@ -35,8 +45,24 @@ MainWindow::MainWindow(QWidget *parent)
     m_deviceGridLay->addWidget(new QLabel("Listen port", m_deviceGroup), 6, 0);
     m_deviceGridLay->addWidget(m_serverIpOnDevice, 5, 1);
     m_deviceGridLay->addWidget(m_serverPortOnDevice, 6, 1);
-    m_deviceGridLay->addWidget(m_saveToDeviceBtn, 7, 2, 2, 2);
+    m_deviceGridLay->addWidget(m_saveToDeviceBtn, 7, 2, 1, 1);
     m_deviceGroup->setLayout(m_deviceGridLay);
+
+    for (int i = 0; i < m_deviceGridLay->count(); ++i)
+    {
+      QWidget *widget = m_deviceGridLay->itemAt(i)->widget();
+      if (widget != NULL)
+      {
+        widget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum);
+      }
+      else
+      {
+        // You may want to recurse, or perform different actions on layouts.
+        // See gridLayout->itemAt(i)->layout()
+      }
+    }
+
+    m_saveToDeviceBtn->setFixedSize(80, 50);
 
     // Controls area
     m_controlsGridLay = new QGridLayout(m_controlsGroup);

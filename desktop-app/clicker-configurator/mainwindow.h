@@ -25,6 +25,8 @@ private:
 
     // Device area
     QGridLayout *m_deviceGridLay;
+    QLineEdit *m_wifiSsidOnDevice;
+    QLineEdit *m_wifiPassOnDevice;
     QLineEdit *m_serverIpOnDevice;
     QLineEdit *m_serverPortOnDevice;
     QPushButton *m_saveToDeviceBtn;
