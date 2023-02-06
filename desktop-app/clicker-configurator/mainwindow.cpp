@@ -193,7 +193,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::onRestartServer()
 {
-    uint key_code = 0x41;
+    //uint key_code = 0x41;
     //PostMessage(m_hwnd, WM_KEYDOWN, key_code, 0);
     //QThread::msleep(1000);
 
