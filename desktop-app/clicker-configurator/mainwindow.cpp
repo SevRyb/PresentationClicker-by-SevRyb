@@ -105,7 +105,8 @@ MainWindow::MainWindow(QWidget *parent)
     */
 
     //wchar_t win_name[] = L"Notepad";
-    wchar_t win_name[] = L"Notepad";
+    //wchar_t win_name[] = L"HwndWrapper[ProPresenter.exe;;49fc9a6e-ba3e-4ac2-8dac-8960d99aa604]";
+    wchar_t win_name[] = L"HwndWrapper[ProPresenter.exe;;98076779-618c-4c13-8790-26ef4c003751]";
 
     hwnd = FindWindow(win_name, 0);
 
@@ -120,13 +121,17 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() << "HWND == " << hwnd << '\n';
 
 
-    wchar_t child_win_class[] = L"Edit";
-    HWND child_hwnd;
-    child_hwnd = FindWindowEx(hwnd, 0, child_win_class, 0);
+    //wchar_t child_win_class[] = L"Edit";
+    //wchar_t child_win_class[] = L"HwndWrapper[ProPresenter.exe;;5d20f443-f24a-4a16-9e78-9e666b78d361]";
+//    wchar_t child_win_class[] = L"HwndWrapper[ProPresenter.exe;;d15abce8-ed9d-42ca-8178-7bb3cb37c69d]";
+//    HWND child_hwnd;
+//    child_hwnd = FindWindowEx(hwnd, 0, child_win_class, 0);
 
-    qDebug() << "child HWND == " << child_hwnd << '\n';
+//    qDebug() << "child HWND == " << child_hwnd << '\n';
 
-    m_hwnd = child_hwnd;
+//    m_hwnd = child_hwnd;
+
+    m_hwnd = hwnd;
 
     //keyCode = VK_F5; // key
     //keyCode = VK_BACK;
@@ -193,19 +198,37 @@ MainWindow::~MainWindow()
 
 void MainWindow::onRestartServer()
 {
-    //uint key_code = 0x41;
+    uint key_code = 0x41;
     //PostMessage(m_hwnd, WM_KEYDOWN, key_code, 0);
     //QThread::msleep(1000);
 
     //PostMessage(m_hwnd, WM_KEYUP, key_code, 0);
 
+//    PostMessage(m_hwnd, WM_ACTIVATE, 0, 0);
+//    PostMessage(m_hwnd, WM_ACTIVATEAPP, 0, 0);
+//    PostMessage(m_hwnd, WM_SETFOCUS, 0, 0);
+//    PostMessage(m_hwnd, WM_KEYDOWN, VK_RIGHT, 0x014d0001);
+//    PostMessage(m_hwnd, WM_KEYUP, VK_RIGHT, 0xc14d0001);
+
+    //SendMessage(m_hwnd, WM_ACTIVATE, 0, 0);
+    //SendMessage(m_hwnd, WM_SIZE, 0, 0);
+
+    SendMessage(m_hwnd, WM_SYSCOMMAND, SC_MAXIMIZE, 0);
+    SendMessage(m_hwnd, WM_SETFOCUS, 0, 0);
+    SendMessage(m_hwnd, WM_KEYDOWN, VK_RIGHT, 0x014d0001);
+    SendMessage(m_hwnd, WM_KEYUP, VK_RIGHT, 0xc14d0001);
+    SendMessage(m_hwnd, WM_SYSCOMMAND, SC_MINIMIZE, 0);
+
+
     // Working
     //PostMessage(m_hwnd, WM_CHAR, key_code, 0);
 
-    PostMessage(m_hwnd, WM_KEYDOWN, VK_CONTROL, 0);
-    PostMessage(m_hwnd, WM_KEYDOWN, 0x41, 0);
-    PostMessage(m_hwnd, WM_KEYUP, VK_CONTROL, 0);
-    PostMessage(m_hwnd, WM_KEYUP, 0x41, 0);
+
+//    PostMessage(m_hwnd, WM_KEYDOWN, VK_CONTROL, 0);
+//    PostMessage(m_hwnd, WM_KEYDOWN, 0x41, 0);
+//    PostMessage(m_hwnd, WM_KEYUP, VK_CONTROL, 0);
+//    PostMessage(m_hwnd, WM_KEYUP, 0x41, 0);
+
 
 //    SendMessage(m_hwnd, WM_KEYDOWN, key_code, 0);
 //    SendMessage(m_hwnd, WM_KEYUP, key_code, 0);
