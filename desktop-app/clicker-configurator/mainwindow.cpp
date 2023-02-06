@@ -199,8 +199,12 @@ void MainWindow::onRestartServer()
 
     //PostMessage(m_hwnd, WM_KEYUP, key_code, 0);
 
-    SendMessage(m_hwnd, WM_KEYDOWN, key_code, 0);
-    QThread::msleep(1000);
-    SendMessage(m_hwnd, WM_KEYUP, key_code, 0);
+    // Working
+    //PostMessage(m_hwnd, WM_CHAR, key_code, 0);
+
+    PostMessage(m_hwnd, WM_KEYDOWN, VK_HOME, 0);
+
+//    SendMessage(m_hwnd, WM_KEYDOWN, key_code, 0);
+//    SendMessage(m_hwnd, WM_KEYUP, key_code, 0);
 }
 
