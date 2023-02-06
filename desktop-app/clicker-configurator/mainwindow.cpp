@@ -90,6 +90,85 @@ MainWindow::MainWindow(QWidget *parent)
     m_serverGridLay->addWidget(m_serverPort, 1, 1);
     m_serverGridLay->addWidget(m_restartServerBtn, 0, 2, 2, 2);
     m_serverGroup->setLayout(m_serverGridLay);
+
+
+    HWND hwnd;
+    uint keyCode;
+    /*
+    QString str;
+    str = "Python";
+    wchar_t* name = new wchar_t[str.length() + 1];
+    str.toWCharArray(name);
+    */
+
+    //wchar_t win_name[] = L"Notepad";
+    wchar_t win_name[] = L"Calculator";
+
+    hwnd = FindWindow(win_name, 0);
+
+    if (hwnd == NULL)
+    {
+        qDebug() << "HWND == NULL\n";
+    }
+    else
+    {
+        //SetForegroundWindow(hwnd);
+    }
+    qDebug() << "HWND == " << hwnd << '\n';
+
+
+    keyCode = VK_F5; // key
+    //keyCode = VK_BACK;
+    //uint keyCode = PP_DATA.key;
+
+    //PostMessage(hwnd, WM_KEYDOWN, keyCode, 0); // key down
+    //PostMessage(hwnd, WM_KEYUP, keyCode, 0); // key up
+
+    //PostMessage(hwnd, WM_CHAR, 0x32, 0);
+    //PostMessage(hwnd, WM_CHAR, keyCode, 0); // key up
+
+    //SendMessage(hwnd, WM_SYSCOMMAND, SC_MAXIMIZE, 0);
+
+    //SendMessage(hwnd, WM_CHAR, SC_MAXIMIZE, 0);
+
+    wchar_t c = L'9';
+    SendMessage(hwnd, WM_CHAR, c, 0);
+
+    //SendMessage(hwnd, WM_KEYDOWN, keyCode, 0); // key down
+    //SendMessage(hwnd, WM_KEYUP, keyCode, 0); // key up
+
+//    for (int i = 0; i < 3; i++)
+//    {
+//        PostMessage(hwnd, WM_KEYDOWN, keyCode, 0); // key down
+//        PostMessage(hwnd, WM_KEYUP, keyCode, 0); // key up
+//    }
+
+
+
+
+
+
+//    std::wstring text = L"Burak Hamdi TUFAN\nthecodeprogram.com";
+//    //Then we are going to create a vector which will contain key inputs
+//    std::vector<INPUT> vec;
+
+//    for(auto ch : text)
+//    {
+//        INPUT key_input = { 0 };
+//        //Make configuations of the key input
+//        //We specify the every character of the text as unicode keyboard_input
+//        key_input.type = INPUT_KEYBOARD;
+//        key_input.ki.dwFlags = KEYEVENTF_UNICODE;
+//        key_input.ki.wScan = ch;
+//        vec.push_back(key_input);
+//    }
+//    INPUT key_input = { 0 };
+//    key_input.type = INPUT_KEYBOARD;
+//    key_input.ki.wVk = VK_BACK;
+//    vec.push_back(key_input);
+//    //Lastly we send the characters by same order
+//    SendInput(vec.size(), vec.data(), sizeof(INPUT));
+
 }
 
 MainWindow::~MainWindow()
