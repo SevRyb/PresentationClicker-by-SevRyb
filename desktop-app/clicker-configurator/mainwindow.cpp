@@ -202,7 +202,10 @@ void MainWindow::onRestartServer()
     // Working
     //PostMessage(m_hwnd, WM_CHAR, key_code, 0);
 
-    PostMessage(m_hwnd, WM_KEYDOWN, VK_HOME, 0);
+    PostMessage(m_hwnd, WM_KEYDOWN, VK_CONTROL, 0);
+    PostMessage(m_hwnd, WM_KEYDOWN, 0x41, 0);
+    PostMessage(m_hwnd, WM_KEYUP, VK_CONTROL, 0);
+    PostMessage(m_hwnd, WM_KEYUP, 0x41, 0);
 
 //    SendMessage(m_hwnd, WM_KEYDOWN, key_code, 0);
 //    SendMessage(m_hwnd, WM_KEYUP, key_code, 0);
