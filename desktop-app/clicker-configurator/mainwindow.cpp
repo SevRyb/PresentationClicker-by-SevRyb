@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "windows.h"
+#include <QThread>
 
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
@@ -91,9 +92,11 @@ MainWindow::MainWindow(QWidget *parent)
     m_serverGridLay->addWidget(m_restartServerBtn, 0, 2, 2, 2);
     m_serverGroup->setLayout(m_serverGridLay);
 
+    // Connects
+    connect(m_restartServerBtn, &QPushButton::released, this, &MainWindow::onRestartServer);
+
 
     HWND hwnd;
-    uint keyCode;
     /*
     QString str;
     str = "Python";
@@ -102,7 +105,7 @@ MainWindow::MainWindow(QWidget *parent)
     */
 
     //wchar_t win_name[] = L"Notepad";
-    wchar_t win_name[] = L"Calculator";
+    wchar_t win_name[] = L"Notepad";
 
     hwnd = FindWindow(win_name, 0);
 
@@ -117,7 +120,15 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() << "HWND == " << hwnd << '\n';
 
 
-    keyCode = VK_F5; // key
+    wchar_t child_win_class[] = L"Edit";
+    HWND child_hwnd;
+    child_hwnd = FindWindowEx(hwnd, 0, child_win_class, 0);
+
+    qDebug() << "child HWND == " << child_hwnd << '\n';
+
+    m_hwnd = child_hwnd;
+
+    //keyCode = VK_F5; // key
     //keyCode = VK_BACK;
     //uint keyCode = PP_DATA.key;
 
@@ -131,8 +142,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     //SendMessage(hwnd, WM_CHAR, SC_MAXIMIZE, 0);
 
-    wchar_t c = L'9';
-    SendMessage(hwnd, WM_CHAR, c, 0);
+    //wchar_t c = L's';
+
+//    keyCode = 0x41;
+
+//    PostMessage(child_hwnd, WM_KEYDOWN, keyCode, 0);
+//    QThread::msleep(1000);
+//    PostMessage(child_hwnd, WM_KEYUP, keyCode, 0);
 
     //SendMessage(hwnd, WM_KEYDOWN, keyCode, 0); // key down
     //SendMessage(hwnd, WM_KEYUP, keyCode, 0); // key up
@@ -173,5 +189,18 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+}
+
+void MainWindow::onRestartServer()
+{
+    uint key_code = 0x41;
+    //PostMessage(m_hwnd, WM_KEYDOWN, key_code, 0);
+    //QThread::msleep(1000);
+
+    //PostMessage(m_hwnd, WM_KEYUP, key_code, 0);
+
+    SendMessage(m_hwnd, WM_KEYDOWN, key_code, 0);
+    QThread::msleep(1000);
+    SendMessage(m_hwnd, WM_KEYUP, key_code, 0);
 }
 

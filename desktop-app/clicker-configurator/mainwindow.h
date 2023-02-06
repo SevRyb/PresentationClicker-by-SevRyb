@@ -16,6 +16,8 @@ class MainWindow : public QWidget
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+private slots:
+    void onRestartServer();
 private:
     UdpClient *m_udpClient;
     QGridLayout *m_mainLay;
@@ -42,5 +44,8 @@ private:
     QLineEdit *m_serverIp;
     QLineEdit *m_serverPort;
     QPushButton *m_restartServerBtn;
+
+
+    HWND m_hwnd;
 };
 #endif // MAINWINDOW_H
