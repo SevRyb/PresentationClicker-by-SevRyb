@@ -23,21 +23,21 @@ private:
     QGridLayout *m_mainLay;
     QGroupBox *m_deviceGroup;
     QGroupBox *m_controlsGroup;
-    QGroupBox *m_serverGroup;
 
     // Device area
     QGridLayout *m_deviceGridLay;
     QLineEdit *m_wifiSsidOnDevice;
     QLineEdit *m_wifiPassOnDevice;
-    QLineEdit *m_serverIpOnDevice;
-    QLineEdit *m_serverPortOnDevice;
-    QPushButton *m_saveToDeviceBtn;
+
+    QLineEdit *m_propresenterIpOnDevice;
+    QLineEdit *m_propresenterPortOnDevice;
+    QLineEdit *m_propresenterPassOnDevice;
 
     // Controls area
     QGridLayout *m_controlsGridLay;
     QPushButton *m_btn0;
     QPushButton *m_btn1;
-    QPushButton *m_btn2;
 
+    QPushButton *m_saveToDeviceBtn;
 };
 #endif // MAINWINDOW_H
