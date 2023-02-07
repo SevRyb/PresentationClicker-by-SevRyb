@@ -29,7 +29,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 /*-----QWidget-----*/
 QWidget
 {
-    background-color: #3a3a3a;
+    background-color: #363739;
     color: #fff;
     selection-background-color: #b78620;
     selection-color: #000;
@@ -184,18 +184,16 @@ QToolButton:checked
 /*-----QPushButton-----*/
 QPushButton
 {
-    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(84, 84, 84, 255),stop:1 rgba(59, 59, 59, 255));
+    background-color: #68696B;
     color: #ffffff;
+    font-weight: bold;
     min-width: 80px;
-    border-style: solid;
-    border-width: 1px;
+    height: 30px;
+    border: none;
     border-radius: 3px;
-    border-color: #051a39;
-    padding: 5px;
-
 }
 
-
+/*
 QPushButton::flat
 {
     background-color: transparent;
@@ -203,7 +201,7 @@ QPushButton::flat
     color: #fff;
 
 }
-
+*/
 
 QPushButton::disabled
 {
@@ -218,14 +216,13 @@ QPushButton::hover
 {
     background-color: rgba(183, 134, 32, 20%);
     border: 1px solid #b78620;
-
 }
 
 
 QPushButton::pressed
 {
-    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(74, 74, 74, 255),stop:1 rgba(49, 49, 49, 255));
-    border: 1px solid #b78620;
+    background-color: #365EC8;
+    border: none;
 
 }
 
@@ -241,13 +238,17 @@ QPushButton::checked
 /*-----QLineEdit-----*/
 QLineEdit
 {
-    background-color: #131313;
+    background-color: #68696B;
     color : #eee;
-    border: 1px solid #343434;
-    border-radius: 2px;
+    border: 2px solid #68696B;
+    border-radius: 4px;
     padding: 3px;
     padding-left: 5px;
+}
 
+QLineEdit::focus
+{
+    border: 2px solid #365EC8;
 }
 
 
@@ -256,8 +257,8 @@ QPlainTextEdit
 {
     background-color: #131313;
     color : #eee;
-    border: 1px solid #343434;
-    border-radius: 2px;
+    border: 0px solid #343434;
+    border-radius: 4px;
     padding: 3px;
     padding-left: 5px;
 
@@ -485,9 +486,8 @@ QGroupBox
 {
     border: 2px solid;
     border-color: #365EC8;
-    border-radius: 5px;
+    border-radius: 7px;
     margin-top: 10px;
-
 }
 
 
