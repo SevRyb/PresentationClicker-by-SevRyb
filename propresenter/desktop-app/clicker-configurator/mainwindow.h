@@ -19,7 +19,7 @@ public:
 private slots:
     void onRestartServer();
 private:
-    UdpClient *m_udpClient;
+    //UdpClient *m_udpClient;
     QGridLayout *m_mainLay;
     QGroupBox *m_deviceGroup;
     QGroupBox *m_controlsGroup;
@@ -39,13 +39,5 @@ private:
     QPushButton *m_btn1;
     QPushButton *m_btn2;
 
-    // Server area
-    QGridLayout *m_serverGridLay;
-    QLineEdit *m_serverIp;
-    QLineEdit *m_serverPort;
-    QPushButton *m_restartServerBtn;
-
-
-    HWND m_hwnd;
 };
 #endif // MAINWINDOW_H
