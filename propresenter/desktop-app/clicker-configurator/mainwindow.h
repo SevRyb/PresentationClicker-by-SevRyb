@@ -39,5 +39,6 @@ private:
     QPushButton *m_btn1;
 
     QPushButton *m_saveToDeviceBtn;
+    QPushButton *m_reloadFromDeviceBtn;
 };
 #endif // MAINWINDOW_H
