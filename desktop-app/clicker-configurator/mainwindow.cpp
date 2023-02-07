@@ -105,8 +105,9 @@ MainWindow::MainWindow(QWidget *parent)
     */
 
     //wchar_t win_name[] = L"Notepad";
-    //wchar_t win_name[] = L"HwndWrapper[ProPresenter.exe;;49fc9a6e-ba3e-4ac2-8dac-8960d99aa604]";
-    wchar_t win_name[] = L"HwndWrapper[ProPresenter.exe;;98076779-618c-4c13-8790-26ef4c003751]";
+    // Working
+    //wchar_t win_name[] = L"HwndWrapper[ProPresenter.exe;;98076779-618c-4c13-8790-26ef4c003751]";
+    wchar_t win_name[] = L"screenClass";
 
     hwnd = FindWindow(win_name, 0);
 
@@ -202,22 +203,24 @@ void MainWindow::onRestartServer()
     //PostMessage(m_hwnd, WM_KEYDOWN, key_code, 0);
     //QThread::msleep(1000);
 
-    //PostMessage(m_hwnd, WM_KEYUP, key_code, 0);
+    //PostMessage(m_hwnd, WM_KEYUP, VK_RIGHT, 0);
 
-//    PostMessage(m_hwnd, WM_ACTIVATE, 0, 0);
-//    PostMessage(m_hwnd, WM_ACTIVATEAPP, 0, 0);
+    // ProPresenter (when maximized)
 //    PostMessage(m_hwnd, WM_SETFOCUS, 0, 0);
 //    PostMessage(m_hwnd, WM_KEYDOWN, VK_RIGHT, 0x014d0001);
 //    PostMessage(m_hwnd, WM_KEYUP, VK_RIGHT, 0xc14d0001);
 
-    //SendMessage(m_hwnd, WM_ACTIVATE, 0, 0);
-    //SendMessage(m_hwnd, WM_SIZE, 0, 0);
+    // PowerPoint
+    PostMessage(m_hwnd, WM_KEYDOWN, VK_RIGHT, 0);
+    PostMessage(m_hwnd, WM_KEYUP, VK_RIGHT, 0);
 
-    SendMessage(m_hwnd, WM_SYSCOMMAND, SC_MAXIMIZE, 0);
-    SendMessage(m_hwnd, WM_SETFOCUS, 0, 0);
-    SendMessage(m_hwnd, WM_KEYDOWN, VK_RIGHT, 0x014d0001);
-    SendMessage(m_hwnd, WM_KEYUP, VK_RIGHT, 0xc14d0001);
-    SendMessage(m_hwnd, WM_SYSCOMMAND, SC_MINIMIZE, 0);
+
+    // ProPresenter
+//    SendMessage(m_hwnd, WM_SYSCOMMAND, SC_MAXIMIZE, 0);
+//    SendMessage(m_hwnd, WM_SETFOCUS, 0, 0);
+//    SendMessage(m_hwnd, WM_KEYDOWN, VK_RIGHT, 0x014d0001);
+//    SendMessage(m_hwnd, WM_KEYUP, VK_RIGHT, 0xc14d0001);
+//    SendMessage(m_hwnd, WM_SYSCOMMAND, SC_MINIMIZE, 0);
 
 
     // Working
