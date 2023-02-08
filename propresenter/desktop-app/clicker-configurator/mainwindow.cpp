@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "windows.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
@@ -12,13 +11,18 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_controlsGroup->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum);
 
-    m_mainLay->addWidget(m_deviceGroup, 0, 0, 1, 3);
-    m_mainLay->addWidget(m_controlsGroup, 1, 0, 1, 3);
+    m_mainLay->addWidget(m_deviceGroup, 1, 0, 1, 3);
+    m_mainLay->addWidget(m_controlsGroup, 2, 0, 1, 3);
 
+    m_reloadFromDeviceBtn = new QPushButton("Reload", m_deviceGroup);
+    //m_saveToDeviceBtn->setFixedSize(80, 50);
+    m_reloadFromDeviceBtn->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     m_saveToDeviceBtn = new QPushButton("Save", m_deviceGroup);
     //m_saveToDeviceBtn->setFixedSize(80, 50);
     m_saveToDeviceBtn->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
-    m_mainLay->addWidget(m_saveToDeviceBtn, 2, 2);
+
+    m_mainLay->addWidget(m_reloadFromDeviceBtn, 0, 1);
+    m_mainLay->addWidget(m_saveToDeviceBtn, 0, 2);
 
     setLayout(m_mainLay);
 
@@ -35,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
     //status_label->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum);
 
     m_deviceGridLay->addWidget(status_label, 0, 0, 1, 3, Qt::AlignTop);
-    m_deviceGridLay->addWidget(new QLabel("<strong>WiFi</strong>", m_deviceGroup), 1, 0);
+    m_deviceGridLay->addWidget(new QLabel("<b>WiFi</b>", m_deviceGroup), 1, 0);
     m_deviceGridLay->addWidget(new QLabel("SSID", m_deviceGroup), 2, 0);
     m_deviceGridLay->addWidget(new QLabel("Password", m_deviceGroup), 3, 0);
     m_deviceGridLay->addWidget(m_wifiSsidOnDevice, 2, 1);

@@ -41,7 +41,7 @@ QLabel
 {
     background-color: transparent;
     color: #fff;
-
+    font-weight: 500;
 }
 
 
@@ -240,15 +240,17 @@ QLineEdit
 {
     background-color: #68696B;
     color : #eee;
-    border: 2px solid #68696B;
+    border: 0px solid #68696B;
     border-radius: 4px;
-    padding: 3px;
-    padding-left: 5px;
+    padding: 2px;
+    /*padding-left: 5px;*/
 }
 
 QLineEdit::focus
 {
     border: 2px solid #365EC8;
+    border-style: outset;
+    /*padding-left: 7px;*/
 }
 
 
