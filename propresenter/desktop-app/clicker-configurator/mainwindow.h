@@ -6,7 +6,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QLineEdit>
-#include <QPlainTextEdit>>
+#include <QPlainTextEdit>
 #include <QLabel>
 #include "udpclient.h"
 

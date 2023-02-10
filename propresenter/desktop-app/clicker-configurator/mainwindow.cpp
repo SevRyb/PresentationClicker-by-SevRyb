@@ -5,6 +5,8 @@ MainWindow::MainWindow(QWidget *parent)
     //, m_udpClient(new UdpClient(this))
 {
     m_mainLay = new QGridLayout(this);
+    m_mainLay->setContentsMargins(10, 20, 10, 20);
+    m_mainLay->setSpacing(20);
 
     m_deviceGroup = new QGroupBox("Device", this);
     m_deviceGroup->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum);
