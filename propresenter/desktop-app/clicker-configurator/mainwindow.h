@@ -6,6 +6,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QLineEdit>
+#include <QPlainTextEdit>>
 #include <QLabel>
 #include "udpclient.h"
 
@@ -37,6 +38,8 @@ private:
     QGridLayout *m_controlsGridLay;
     QPushButton *m_btn0;
     QPushButton *m_btn1;
+    QPlainTextEdit *m_btn0CommandTextEdit;
+    QPlainTextEdit *m_btn1CommandTextEdit;
 
     QPushButton *m_saveToDeviceBtn;
     QPushButton *m_reloadFromDeviceBtn;

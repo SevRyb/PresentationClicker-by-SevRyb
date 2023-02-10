@@ -184,7 +184,7 @@ QToolButton:checked
 /*-----QPushButton-----*/
 QPushButton
 {
-    background-color: #68696B;
+    background-color: #235AD1;
     color: #ffffff;
     font-weight: bold;
     min-width: 80px;
@@ -214,10 +214,16 @@ QPushButton::disabled
 
 QPushButton::hover
 {
-    background-color: rgba(183, 134, 32, 20%);
+    background-color: #1D49AA;
     border: 1px solid #b78620;
 }
 
+
+QPushButton::focus
+{
+    background-color: #235AD1;
+    border: 0px solid #CBD6ED;
+}
 
 QPushButton::pressed
 {
@@ -240,16 +246,16 @@ QLineEdit
 {
     background-color: #68696B;
     color : #eee;
-    border: 0px solid #68696B;
+    border: 2px solid #68696B;
     border-radius: 4px;
-    padding: 2px;
+    /*padding: 2px;*/
     /*padding-left: 5px;*/
 }
 
 QLineEdit::focus
 {
     border: 2px solid #365EC8;
-    border-style: outset;
+    /*border-style: outset;*/
     /*padding-left: 7px;*/
 }
 
@@ -257,13 +263,19 @@ QLineEdit::focus
 /*-----QPlainTExtEdit-----*/
 QPlainTextEdit
 {
-    background-color: #131313;
+    background-color: #68696B;
     color : #eee;
-    border: 0px solid #343434;
+    border: 0px solid #68696B;
     border-radius: 4px;
-    padding: 3px;
-    padding-left: 5px;
+    /*padding: 2px;*/
+    /*padding-left: 5px;*/
+}
 
+QPlainTextEdit::focus
+{
+    border: 2px solid #365EC8;
+    /*border-style: outset;*/
+    /*padding-left: 7px;*/
 }
 
 
