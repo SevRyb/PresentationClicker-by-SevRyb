@@ -11,11 +11,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Network REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Network REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS WebSockets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS WebSockets REQUIRED)
+
 add_subdirectory(submodules/qlementine)
-
-
 
 set(PROJECT_SOURCES
         main.cpp
@@ -46,7 +45,7 @@ endif()
 
 target_link_libraries(websockets_client PRIVATE oclero::qlementine)
 target_link_libraries(websockets_client PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-target_link_libraries(websockets_client PRIVATE Qt${QT_VERSION_MAJOR}::Network)
+target_link_libraries(websockets_client PRIVATE Qt${QT_VERSION_MAJOR}::WebSockets)
 
 set_target_properties(websockets_client PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

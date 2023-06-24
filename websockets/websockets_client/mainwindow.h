@@ -3,10 +3,13 @@
 #define MAINWINDOW_H
 
 #include <oclero/qlementine/widgets/FramelessWindow.hpp>
+#include <oclero/qlementine/widgets/LineEdit.hpp>
 #include <QGridLayout>
 #include <QLineEdit>
 #include <QTextEdit>
 #include <QPushButton>
+
+#include <QWebSocket>
 
 class MainWindow : public oclero::qlementine::FramelessWindow
 
@@ -16,13 +19,24 @@ class MainWindow : public oclero::qlementine::FramelessWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void onConnected();
+    void onMessageReceived(QString text);
+    void onDisconnected();
+    void onError(QAbstractSocket::SocketError error);
 private:
+    QWidget *m_rootWidget;
     QGridLayout *m_rootLay;
-    QLineEdit *m_addressEdit;
+    oclero::qlementine::LineEdit *m_urlEdit;
     QPushButton *m_connectBtn;
     QPushButton *m_sendBtn;
-    QTextEdit *m_dataToSendText;
-    QTextEdit *m_responseText;
+    QTextEdit *m_dataToSendTextEdit;
+    QTextEdit *m_responseTextEdit;
+
+    QWebSocket m_webSocket;
+    QUrl m_url;
+    bool m_isConnected;
 };
 
 #endif // MAINWINDOW_H
