@@ -12,8 +12,7 @@ Client::Client(QObject *parent)
 
 void Client::onConnected()
 {
-    connect(&m_webSocket, &QWebSocket::textMessageReceived,
-                this, &Client::onMsgReceived);
+    connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &Client::onMsgReceived);
     qDebug() << "Connected\n";
     m_webSocket.sendTextMessage(QStringLiteral("{\"action\":\"authenticate\",\"protocol\":\"702\",\"password\":\"control\"}"));
     m_webSocket.sendTextMessage(QStringLiteral("{\"action\": \"presentationTriggerNext\" }"));
