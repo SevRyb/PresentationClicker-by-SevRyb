@@ -1,0 +1,3 @@
+[submodule "tests/websockets/websockets_client/submodules/qlementine"]
+	path = tests/websockets/websockets_client/submodules/qlementine
+	url = https://github.com/oclero/qlementine.git
