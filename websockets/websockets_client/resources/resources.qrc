@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>dark.json</file>
-    </qresource>
-</RCC>
